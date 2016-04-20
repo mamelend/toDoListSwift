@@ -13,10 +13,12 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var item: UITextField!
     
     @IBAction func addItem(sender: AnyObject) {
-        toDoList.append(item.text!)
-        item.text = ""
+        if item.text != "" {
+            toDoList.append(item.text!)
+            item.text = ""
         
-        NSUserDefaults.standardUserDefaults().setObject(toDoList, forKey: "toDoList")
+            NSUserDefaults.standardUserDefaults().setObject(toDoList, forKey: "toDoList")
+        }
     }
     
     
